@@ -1,4 +1,4 @@
-// [Missing Code 1] Include header file.
+#include "lab23.h"
   
 int main(){
 	srand(time(0));
@@ -9,7 +9,9 @@ int main(){
 	Unit hero("Hero",name);
 	
 	Equipment sword(0,8,4);
-	// [Missing Code 2]  Create Equipment axes, shield and armor here
+	Equipment axes(0,16,-3);
+	Equipment shield(0,-1,7);
+	Equipment armor(25,-2,2);
 
 	
 	
@@ -17,7 +19,18 @@ int main(){
 	cout << " [1] Sword \n [2] Axes \n [3] Shield \n [4] Armor \n";
 	cout << "Please selet your equipment: ";
 	cin >> eq;
-	// [Missing Code 3] Equip a selected equipment to the hero. 
+	if(eq =='1'){
+		hero.equip(&sword);
+	}
+	if(eq =='2'){
+		hero.equip(&axes);
+	}
+	if(eq =='3'){
+		hero.equip(&shield);
+	}
+	if(eq =='4'){
+		hero.equip(&armor);
+	}
 
 	
 	
@@ -38,11 +51,11 @@ int main(){
 		player_action = toupper(player_action);
 		if(player_action == 'E') break; 
 		
-		int temp = rand()%5;
-		if(temp <= 1) monster_action = 'A';
-		else if(temp == 2) monster_action = 'G';
-		else if(temp == 3) monster_action = 'D';
-		else if(temp == 4) monster_action = 'U';
+		int temp = rand()%5; // 0-4
+		if(temp <= 1) monster_action = 'A'; //0 1
+		else if(temp == 2) monster_action = 'G';// 2
+		else if(temp == 3) monster_action = 'D';// 3
+		else if(temp == 4) monster_action = 'U';// 4
 		
 		if(player_action == 'G') hero.guard();
 		if(monster_action == 'G') mons.guard();
@@ -57,7 +70,18 @@ int main(){
 			cout << " [1] Sword \n [2] Axes \n [3] Shield \n [4] Armor \n";
 			cout << "Please select your equipment: ";
 			cin >> eq;
-			// [Missing Code 3] Equip a selected equipment to the hero.
+			if(eq =='1'){
+			hero.equip(&sword);
+			}
+			if(eq =='2'){
+				hero.equip(&axes);
+			}
+			if(eq =='3'){
+				hero.equip(&shield);
+			}
+			if(eq =='4'){
+				hero.equip(&armor);
+			}
 
 			
 		}
